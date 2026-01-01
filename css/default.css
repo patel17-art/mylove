@@ -17,17 +17,26 @@
 #copyright{margin-top:10px;text-align:center;width:100%;color:#666}
 #errorMsg{width:100%;text-align:center;font-size:24px;position:absolute;top:100px;left:0}
 #copyright a{color:#666}
-#icon{font-size: 48px;color: #d205d2;margin: 50 px; align-content: center;}
-.gallery {
-  display: none;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+#icon {
+  font-size: 50px;
+  background: linear-gradient(145deg, #9f5cff, #6a1bbf);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.35);
+}
+#icon {
+  color: #8e2de2; /* fallback purple */
+}
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
 }
 
-.gallery img {
-  width: 200px;
-  border-radius: 12px;
+#icon {
+  animation: beat 1.5s infinite;
 }
 #heartspan{align-content: center;text-align: center;margin: 20px;}
 
