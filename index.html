@@ -50,6 +50,7 @@
 			<span id="heartspan">
 			<a href="gallery.html" target="_blank"> <i class="fas fa-heart" id="icon"></i></a> 
 			</span>
+			<script src="js/functions.js"></script>
 		</div>
 		<div id="loveHeart">
 			<canvas id="garden"></canvas>
@@ -100,5 +101,19 @@ if (!document.createElement('canvas').getContext) {
 	$("#code").typewriter();
 }
 </script>
+
+<div id="passwordOverlay">
+	<div class="passwordBox">
+		<div class="modalHeart">💜</div>
+		<h3>For My Love</h3>
+		<p>Enter the secret password</p>
+		<input type="password" id="passwordInput" placeholder="Password" />
+		<button id="unlockBtn">Unlock 💙</button>
+		<div id="errorMs">
+			<span>That’s not our secret… 💔</span>
+		</div>
+	</div>
+</div>
+
 </body>
 </html>

@@ -135,3 +135,63 @@ function showLoveU() {
 	$('#loveu').fadeIn(3000);
 }
 
+document.addEventListener(
+  "click",
+  function (e) {
+    const heartLink = e.target.closest("#heartspan a");
+    if (!heartLink) return;
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    const overlay = document.getElementById("passwordOverlay");
+    const input = document.getElementById("passwordInput");
+    const error = document.getElementById("errorMs");
+    const unlockBtn = document.getElementById("unlockBtn");
+
+    overlay.style.display = "flex";
+    input.value = "";
+    error.style.display = "";
+    input.focus();
+
+	 // PASSWORD → PAGE MAP
+	 const routes = {
+		
+		"hi": "gallery2.html",
+		"Hilove": heartLink.href // original destination
+
+	 };
+
+    unlockBtn.onclick = function () {
+		// reset state every click
+		error.classList.remove("show");
+		input.classList.remove("shake");
+		// force reflow so animation can replay
+		void input.offsetWidth;
+
+		const entered = input.value.trim();
+
+      	if (routes[entered]) {
+        	overlay.style.display = "";
+        	window.open(routes[entered], "_blank");
+      	} else {
+        	console.log("Wrong password, showing error");
+
+        	error.classList.remove("show");
+        	void error.offsetWidth;
+        	error.classList.add("show");
+
+        	input.classList.remove("shake");
+        	void input.offsetWidth;
+        	input.classList.add("shake");
+
+        	input.focus();
+      	}
+    };
+
+    overlay.onclick = function (ev) {
+      if (ev.target === overlay) overlay.style.display = "";
+    };
+  },
+  true
+);
