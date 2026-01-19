@@ -17,6 +17,9 @@
 #copyright{margin-top:10px;text-align:center;width:100%;color:#666}
 #errorMsg{width:100%;text-align:center;font-size:24px;position:absolute;top:100px;left:0}
 #copyright a{color:#666}
+#codeWrapper {
+  display: inline-block;
+}
 #icon {
   font-size: 50px;
   background: linear-gradient(145deg, #9f5cff, #6a1bbf);

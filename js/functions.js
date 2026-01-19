@@ -73,24 +73,43 @@ function startHeartAnimation() {
 (function($) {
 	$.fn.typewriter = function() {
 		this.each(function() {
-			var $ele = $(this), str = $ele.html(), progress = 0;
+			var $ele = $(this);
+
+			// clone and remove elements that should NOT be typed
+			var $protected = $ele.find('.no-type').detach();
+
+			var str = $ele.html();
+			var progress = 0;
+
 			$ele.html('');
+
 			var timer = setInterval(function() {
 				var current = str.substr(progress, 1);
-				if (current == '<') {
+
+				if (current === '<') {
 					progress = str.indexOf('>', progress) + 1;
 				} else {
 					progress++;
 				}
+
 				$ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
+
 				if (progress >= str.length) {
 					clearInterval(timer);
+
+					// remove cursor
+					$ele.html(str);
+
+					// restore protected content
+					$ele.append($protected);
 				}
 			}, 75);
 		});
+
 		return this;
 	};
 })(jQuery);
+
 
 function timeElapse(date){
 	var current = Date();
