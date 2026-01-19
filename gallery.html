@@ -49,22 +49,23 @@
     <div class="container"> 
         <h1>💙 Memories 💜</h1>
 
-        <div class="gallery">
-            <img src="./images2/1.png">
-            <img src="./images2/2.png">
-            <img src="./images2/3.png">
-            <img src="./images2/4.png">
-            <img src="./images2/5.png">
-            <img src="./images2/6.png">
-            <img src="./images2/7.png">
-            <img src="./images2/8.png">
-            <img src="./images2/9.png">
-            <img src="./images2/10.png">
-            <img src="./images2/11.png">
-            <img src="./images2/12.png">
-            <img src="./images2/13.png">
-            <img src="./images2/14.png">
-        </div>
+        <div class="gallery" id="gallery"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const gallery = document.getElementById("gallery");
+            const totalImages = 21;
+            const imagePath = "./images2/";
+
+            for (let i = 1; i <= totalImages; i++) {
+              const img = document.createElement("img");
+              img.src = `${imagePath}${i}.png`;
+              gallery.appendChild(img);
+
+            }
+
+          });
+        </script>
     </div>
 
   
