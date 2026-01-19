@@ -6,8 +6,8 @@ var clientHeight = $(window).height();
 $(function () {
     // setup garden
     $loveHeart = $("#loveHeart");
-    var offsetX = $loveHeart.width() / 2;
-    var offsetY = $loveHeart.height() / 2 - 55;
+    offsetX = $loveHeart.width() / 2;
+    offsetY = $loveHeart.height() / 2 - 55;
     $garden = $("#garden");
     gardenCanvas = $garden[0];
     gardenCanvas.width = $("#loveHeart").width();
