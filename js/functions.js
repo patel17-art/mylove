@@ -1,13 +1,16 @@
 ﻿
 var $window = $(window), gardenCtx, gardenCanvas, $garden, garden;
+var offsetX, offsetY;
 var clientWidth = $(window).width();
 var clientHeight = $(window).height();
 
 $(function () {
     // setup garden
     $loveHeart = $("#loveHeart");
+
     offsetX = $loveHeart.width() / 2;
     offsetY = $loveHeart.height() / 2 - 55;
+
     $garden = $("#garden");
     gardenCanvas = $garden[0];
     gardenCanvas.width = $("#loveHeart").width();
@@ -26,8 +29,6 @@ $(function () {
         garden.render();
     }, Garden.options.growSpeed);
 
-    // ✅ ADD THIS LINE (CRITICAL)
-    startHeartAnimation();
 });
 
 
@@ -47,6 +48,8 @@ function getHeartPoint(angle) {
 }
 
 function startHeartAnimation() {
+	offsetX = $("#loveHeart").width() / 2;
+    offsetY = $("#loveHeart").height() / 2 - 55;
 	var interval = 50;
 	var angle = 10;
 	var heart = new Array();

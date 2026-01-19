@@ -83,9 +83,6 @@ if (!document.createElement('canvas').getContext) {
 	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
 	document.body.appendChild(msg);
 	$("#code").css("display", "none")
-	$("#copyright").css("position", "absolute");
-	$("#copyright").css("bottom", "10px");
-	document.execCommand("stop");
 } else {
 	setTimeout(function () {
 		startHeartAnimation();
