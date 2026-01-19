@@ -5,27 +5,31 @@ var clientHeight = $(window).height();
 
 $(function () {
     // setup garden
-	$loveHeart = $("#loveHeart");
-	var offsetX = $loveHeart.width() / 2;
-	var offsetY = $loveHeart.height() / 2 - 55;
+    $loveHeart = $("#loveHeart");
+    var offsetX = $loveHeart.width() / 2;
+    var offsetY = $loveHeart.height() / 2 - 55;
     $garden = $("#garden");
     gardenCanvas = $garden[0];
-	gardenCanvas.width = $("#loveHeart").width();
-    gardenCanvas.height = $("#loveHeart").height()
+    gardenCanvas.width = $("#loveHeart").width();
+    gardenCanvas.height = $("#loveHeart").height();
     gardenCtx = gardenCanvas.getContext("2d");
     gardenCtx.globalCompositeOperation = "lighter";
     garden = new Garden(gardenCtx, gardenCanvas);
-	
-	$("#content").css("width", $loveHeart.width() + $("#code").width());
-	$("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
-	$("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
-	$("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
+
+    $("#content").css("width", $loveHeart.width() + $("#code").width());
+    $("#content").css("height", Math.max($loveHeart.height(), $("#code").height()));
+    $("#content").css("margin-top", Math.max(($window.height() - $("#content").height()) / 2, 10));
+    $("#content").css("margin-left", Math.max(($window.width() - $("#content").width()) / 2, 10));
 
     // renderLoop
     setInterval(function () {
         garden.render();
     }, Garden.options.growSpeed);
+
+    // ✅ ADD THIS LINE (CRITICAL)
+    startHeartAnimation();
 });
+
 
 $(window).resize(function() {
     var newWidth = $(window).width();
