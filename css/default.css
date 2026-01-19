@@ -20,6 +20,11 @@
 #codeWrapper {
   display: inline-block;
 }
+#heart-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
 #icon {
   font-size: 50px;
   background: linear-gradient(145deg, #9f5cff, #6a1bbf);

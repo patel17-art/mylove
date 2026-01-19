@@ -23,6 +23,7 @@
 <div id="mainDiv">
 	<div id="content">
 		<div id="code">
+			<span id="typed-text">
 			<span class="comments">/**</span><br />
 			<span class="space"/><span class="comments">*THE CODE OF LOVE</span><br />
 			<span class="space"/><span class="comments">*/</span><br />
@@ -47,10 +48,14 @@
 			<br>
 			If you want a little surprise, you can touch the heart below. <br />
 			<br>
+			</span>
+		
+		<div id="heart-wrapper">
 			<span id="heartspan" class="no-type">
 			<a href="gallery.html" target="_blank"> <i class="fas fa-heart" id="icon"></i></a> 
 			</span>
 			<script src="js/functions.js"></script>
+		</div>
 		</div>
 		<div id="loveHeart">
 			<canvas id="garden"></canvas>
@@ -98,7 +103,7 @@ if (!document.createElement('canvas').getContext) {
 	}, 500);
 
 	adjustCodePosition();
-	$("#code").typewriter();
+	$("#typed-text").typewriter();
 }
 </script>
 
