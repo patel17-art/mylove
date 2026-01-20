@@ -52,6 +52,8 @@
 			</span>
 			<script src="js/functions.js"></script>
 		</div>
+
+
 		<div id="loveHeart">
 			<canvas id="garden"></canvas>
 			<div id="words">
@@ -70,12 +72,19 @@
 
 <script type="text/javascript">
 
-var together = new Date();
-together.setUTCFullYear(2025, 6, 25);
-together.setUTCHours(12);
-together.setUTCMinutes(0);
-together.setUTCSeconds(0);
-together.setUTCMilliseconds(0);
+$(function () {
+      startHeartAnimation();
+
+      const together = new Date();
+      together.setFullYear(2025, 6, 25);
+      together.setHours(12, 0, 0, 0);
+
+      setInterval(function () {
+        timeElapse(together);
+      }, 1000);
+
+      $("#code").typewriter();
+    });
 
 if (!document.createElement('canvas').getContext) {
 	var msg = document.createElement("div");
@@ -83,19 +92,7 @@ if (!document.createElement('canvas').getContext) {
 	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
 	document.body.appendChild(msg);
 	$("#code").css("display", "none")
-} else {
-	setTimeout(function () {
-		startHeartAnimation();
-	}, 5000);
-
-	timeElapse(together);
-	setInterval(function () {
-		timeElapse(together);
-	}, 500);
-
-	adjustCodePosition();
-	$("#code").typewriter();
-}
+} 
 </script>
 
 <div id="passwordOverlay">
@@ -103,7 +100,8 @@ if (!document.createElement('canvas').getContext) {
 		<div class="modalHeart">💜</div>
 		<h3>For My Love</h3>
 		<p>Enter the secret password</p>
-		<input type="password" id="passwordInput" placeholder="Password" />
+
+		<input type="password" id="passwordInput" placeholder="Our secret…" />
 		<button id="unlockBtn">Unlock 💙</button>
 		<div id="errorMs">
 			<span>That’s not our secret… 💔</span>

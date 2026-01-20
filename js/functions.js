@@ -4,6 +4,7 @@ var offsetX, offsetY;
 var clientWidth = $(window).width();
 var clientHeight = $(window).height();
 
+
 $(function () {
     // setup garden
     $loveHeart = $("#loveHeart");
