@@ -50,7 +50,7 @@
 			<span id="heartspan">
 			<a href="gallery.html" target="_blank"> <i class="fas fa-heart" id="icon"></i></a> 
 			</span>
-			<script src="js/functions.js"></script>
+			
 		</div>
 
 
@@ -73,26 +73,33 @@
 <script type="text/javascript">
 
 $(function () {
-      startHeartAnimation();
+    // 1. Set the date correctly
+    var together = new Date();
+    together.setFullYear(2025, 6, 25); // July 25th
+    together.setHours(12, 0, 0, 0);
 
-      const together = new Date();
-      together.setFullYear(2025, 6, 25);
-      together.setHours(12, 0, 0, 0);
+    if (!document.createElement('canvas').getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML = "Your browser doesn't support HTML5!";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none");
+    } else {
+        // Start the typewriter first
+        $("#code").typewriter();
+        
+        // Delay the heart animation slightly for better effect
+        setTimeout(function () {
+            startHeartAnimation();
+        }, 5000);
 
-      setInterval(function () {
+        // Start the clock
         timeElapse(together);
-      }, 1000);
-
-      $("#code").typewriter();
-    });
-
-if (!document.createElement('canvas').getContext) {
-	var msg = document.createElement("div");
-	msg.id = "errorMsg";
-	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
-	document.body.appendChild(msg);
-	$("#code").css("display", "none")
-} 
+        setInterval(function () {
+            timeElapse(together);
+        }, 1000);
+    }
+});
 </script>
 
 <div id="passwordOverlay">
