@@ -29,19 +29,22 @@
       font-size: 48px; 
     }
 
-    .gallery{
+    .gallery {
         display: grid;
-         grid-template-columns: repeat(3, 1fr); /* 3 images per row */
-         gap: 25px;
-         justify-items: center;  /* center images horizontally */
-         align-items: center;    /* center images vertically */
-         margin-top: 40px;
-         padding-bottom: 80px;
+        grid-template-columns: repeat(3, 250px);
+        gap: 25px;
+        justify-content: center;
+        align-items: start;
+        margin-top: 40px;
+        padding-bottom: 80px;
     }
 
     .gallery img {
-      width: 250px;
-      border-radius: 15px;
+        width: 250px;
+        height: 330px;
+        object-fit: cover;
+        border-radius: 15px;
+        display: block;
     }
   </style>
 </head>
@@ -55,7 +58,7 @@
         <script>
           document.addEventListener("DOMContentLoaded", () => {
             const gallery = document.getElementById("gallery");
-            const totalImages = 60 ;
+            const totalImages = 124 ;
             const imagePath = "./images2/";
 
             for (let i = 1; i <= totalImages; i++) {
